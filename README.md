@@ -1,1 +1,1 @@
-# C_Programming_HackerRank
+# C_Programming

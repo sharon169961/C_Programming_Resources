@@ -47,66 +47,7 @@ Array before swap: 12 45 68 95 67
 Array after swap: 67 45 68 95 12
 ```
 
-## C Program
-```c
-#include <stdio.h>
 
-void swap(int *arr, int n) {
-    int temp = *arr;                // Store the first element
-    *arr = *(arr + n - 1);          // Swap the first element with the last element
-    *(arr + n - 1) = temp;          // Set the last element to the stored value of the first element
-}
-
-int main() {
-    int n;
-    scanf("%d", &n);                // Input number of elements
-
-    int arr[n];                      // Declare an array of size n
-
-    // Input array elements
-    for (int i = 0; i < n; i++) {
-        scanf("%d", &arr[i]);
-    }
-
-    // Display the array before swapping
-    printf("Array before swap: ");
-    for (int i = 0; i < n; i++) {
-        printf("%d ", arr[i]);
-    }
-    printf("\n");
-
-    // Swap first and last elements using pointers
-    swap(arr, n);
-
-    // Display the array after swapping
-    printf("Array after swap: ");
-    for (int i = 0; i < n; i++) {
-        printf("%d ", arr[i]);
-    }
-    printf("\n");
-
-    return 0;
-}
-```
-
-## Explanation
-- The program defines a **`swap`** function to swap the **first** and **last** elements of the array using **pointer arithmetic**.
-- **Before the swap**, the array is printed.
-- **After the swap**, the array is printed again, showing the swapped elements.
-
-## How to Run
-1. Compile the C program using:
-   ```sh
-   gcc swap_array.c -o swap_array
-   ```
-2. Run the executable:
-   ```sh
-   ./swap_array
-   ```
-3. Enter the required inputs and observe the output.
-
-## Author
-**John**
 
 ## License
 This project is open-source and available for use under the MIT License.

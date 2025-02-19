@@ -1,51 +1,48 @@
+// You are using GCC
+
+
 #include <stdio.h>
 
-#define INTEREST_RATE 0.03 // 3% interest rate
-
-// Define Customer structure
-typedef struct {
-    char name[50];     // Customer name
-    int account_no;    // Account number
-    float balance;     // Account balance
-} Customer;
-
-int main() {
-    int N;
+typedef struct{
     
-    // Read number of customers
-    scanf("%d", &N);
+    char name[100];
+    int number;
+    float account;
+}bank;
 
-    // Declare array to store customer details
-    Customer customers[N];
-
-    // Read customer details
-    for (int i = 0; i < N; i++) {
-        scanf("%s %d %f", customers[i].name, &customers[i].account_no, &customers[i].balance);
+int main(){
+    
+    int n;
+    scanf("%d",&n); //number of customers
+    
+    //Array to store customer details;
+    
+    bank customers[n];
+    
+    for(int i=0;i<n;i++){
+        
+        scanf("%s %d %f",customers[i].name, &customers[i].number, &customers[i].account);
     }
-
-    // Print customers with balance less than Rs. 200
-    printf("Customers with balance less than Rs.200:\n");
-    int found = 0;
-    for (int i = 0; i < N; i++) {
-        if (customers[i].balance < 200) {
-            if (found) {
-                printf(" "); // Print space before the next name
-            }
-            printf("%s", customers[i].name);
-            found = 1;
+    
+    //customers with balance less tham 200
+    
+    printf("Customers with Balance less tham 200:\n");
+    for(int i=0;i<n;i++){
+        if(customers[i].account < 200){
+            printf("%s ", customers[i].name);
         }
     }
-    if (found) {
-        printf("\n");
-    }
-
-    // Apply 3% interest for customers with balance > Rs. 1000
-    for (int i = 0; i < N; i++) {
-        if (customers[i].balance > 1000) {
-            customers[i].balance += customers[i].balance * INTEREST_RATE;
-            printf("Updated balance of %s: Rs.%.2f\n", customers[i].name, customers[i].balance);
+    
+    printf("\n");
+    
+    //Apply 3% interest rate to people with more than 1000
+    
+    for(int i=0; i<n;i++){
+        if(customers[i].account>1000){
+            customers[i].account = customers[i].account + customers[i].account*(0.03);
+            printf("Updated balance of %s: %.2f\n",customers[i].name,customers[i].account);
         }
     }
-
+    
     return 0;
 }
